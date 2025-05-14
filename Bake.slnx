@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Solution Items/"> 
+    <File Path="Directory.Build.props" /> 
+    <File Path="Directory.Packages.props" /> 
+  </Folder> 
+  <Folder Name="/src/">
+    <Project Path="src/Bar.Api/Bar.Api.csproj" />
+    <Project Path="src/Baz.Api/Baz.Api.csproj" />
+    <Project Path="src/Foo.Api/Foo.Api.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Bar.Api.Tests/Bar.Api.Tests.csproj" />
+    <Project Path="tests/Baz.Api.Tests/Baz.Api.Tests.csproj" />
+    <Project Path="tests/Foo.Api.Tests/Foo.Api.Tests.csproj" />
+  </Folder>
+</Solution>

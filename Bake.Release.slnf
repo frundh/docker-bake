@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "path": "Bake.slnx",
+    "projects": [
+      "src/Bar.Api/Bar.Api.csproj",
+      "src/Baz.Api/Baz.Api.csproj",
+      "src/Foo.Api/Foo.Api.csproj"
+    ]
+  }
+}

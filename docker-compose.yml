@@ -1,0 +1,41 @@
+services:
+
+  traefik:
+    image: traefik:v3.4
+    command:
+      #- "--log.level=DEBUG"
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entryPoints.web.address=:80"
+    ports:
+      - "8080:80"
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.services.traefik.loadbalancer.server.port=8080"
+      - "traefik.http.routers.traefik.rule=Host(`traefik.local.gd`)"
+      - "traefik.http.routers.traefik.entrypoints=web"
+      - "traefik.http.routers.traefik.service=api@internal"
+
+  foo:
+    image: foo:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.foo.rule=Host(`foo.local.gd`)"
+      - "traefik.http.routers.foo.entrypoints=web"
+
+  bar:
+    image: bar:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.bar.rule=Host(`bar.local.gd`)"
+      - "traefik.http.routers.bar.entrypoints=web"
+
+  baz:
+    image: baz:latest
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.baz.rule=Host(`baz.local.gd`)"
+      - "traefik.http.routers.baz.entrypoints=web"
